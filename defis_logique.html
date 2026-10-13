@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="10 petites énigmes de logique et d'observation, à faire gratuitement en quelques minutes. Sans inscription et sans collecte de réponses.">
+  <title>10 défis de logique — Le Coin des Tests</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#213149;background:#f6f8fc;--ink:#213149;--navy:#263c65;--line:#e3e9f1;--muted:#56677e;--yellow:#fff0c7;--mint:#dff5e9;--purple:#e8e4ff}
+    *{box-sizing:border-box}
+    body{margin:0;min-width:290px}
+    main{width:min(100%,740px);margin:0 auto;padding:22px 17px 58px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:36px}
+    .brand{font-weight:850;letter-spacing:-.04em;font-size:16px}
+    .pill{border-radius:40px;background:#e8e4ff;padding:8px 11px;color:#4a4187;font-size:12px;font-weight:700;white-space:nowrap}
+    .card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:clamp(20px,5vw,38px);box-shadow:0 12px 34px rgba(32,51,89,.06)}
+    .eyebrow{color:#6a58b9;font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(30px,6vw,45px);line-height:1.12;letter-spacing:-.045em;margin:12px 0 18px}
+    h2{font-size:clamp(24px,4.5vw,33px);line-height:1.2;letter-spacing:-.035em;margin:18px 0 20px}
+    p{line-height:1.6}
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .chips{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 25px}
+    .chip{background:#eef3f8;color:#354a66;border-radius:40px;font-weight:700;font-size:12px;padding:9px 12px}
+    .btn{appearance:none;border:0;background:var(--navy);color:white;border-radius:13px;padding:14px 20px;font:inherit;font-weight:750;cursor:pointer;min-height:48px}
+    .btn:hover{background:#354f80}
+    .btn:focus-visible,.answer:focus-visible{outline:3px solid #f1ac40;outline-offset:3px}
+    .btn.secondary{background:#eef2f8;color:var(--ink)}
+    .btn.secondary:hover{background:#e5ebf6}
+    .question-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}
+    .score-mini{font-size:13px;color:var(--muted);font-weight:650}
+    .track{height:9px;background:#edf0f7;border-radius:20px;overflow:hidden;margin-bottom:25px}
+    .track-fill{height:100%;width:0%;background:linear-gradient(90deg,#7162d9,#3fa990);transition:width .2s ease}
+    .answers{display:grid;gap:10px}
+    .answer{width:100%;text-align:left;background:white;border:2px solid #e2e8f1;border-radius:15px;color:var(--ink);padding:14px 16px;min-height:56px;cursor:pointer;font:inherit;font-weight:650}
+    .answer:hover:not(:disabled){border-color:#7968cc;background:#f7f5ff}
+    .answer:disabled{cursor:default;opacity:1}
+    .answer.correct{border-color:#2f9e70;background:#e6f8ee}
+    .answer.wrong{border-color:#d87867;background:#fff0ed}
+    .explanation{margin:19px 0 2px;border-radius:15px;padding:15px 16px;background:var(--purple);border-left:5px solid #7a65d0}
+    .explanation.good{background:#e7f7ee;border-left-color:#2d9468}
+    .explanation strong{display:block;margin-bottom:5px}
+    .actions{display:flex;justify-content:flex-end;margin-top:24px}
+    .result-box{padding:20px;border-radius:17px;background:var(--yellow);margin:20px 0}
+    .big-score{font-size:clamp(34px,9vw,56px);font-weight:850;letter-spacing:-.05em;margin:6px 0}
+    .result-title{font-weight:850;font-size:22px;margin:10px 0}
+    .review{margin:22px 0 4px;padding:18px;background:#f0f5ff;border-radius:16px}
+    .review h3{margin:0 0 10px;font-size:17px}
+    .review ul{margin:0;padding-left:20px;line-height:1.65}
+    footer{text-align:center;font-size:12px;color:#69778c;line-height:1.6;padding:26px 10px 0}
+    [hidden]{display:none !important}
+    @media(max-width:450px){header{margin-bottom:20px}.card{border-radius:20px}.pill{font-size:11px}.actions .btn{width:100%}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="brand">✦ Le Coin des Tests</div>
+    <div class="pill">Gratuit · Sans inscription</div>
+  </header>
+
+  <section id="intro" class="card">
+    <div class="eyebrow">Défis & logique · 10 questions</div>
+    <h1>10 défis pour faire chauffer tes neurones 🧩</h1>
+    <p>Suites, petits pièges, déductions… Dix questions pour jouer avec ta logique. À chaque réponse, tu découvres l'explication avant de passer à la suivante.</p>
+    <div class="chips"><span class="chip">⏱ 3 à 5 minutes</span><span class="chip">🎯 10 défis</span><span class="chip">💡 Explications incluses</span></div>
+    <p class="muted small">Un jeu de raisonnement, pas un test de QI. Ton score ne mesure ni ton intelligence ni tes capacités.</p>
+    <button type="button" id="start" class="btn">C'est parti ! →</button>
+  </section>
+
+  <section id="quiz" class="card" hidden aria-labelledby="question-title">
+    <div class="question-top"><div id="counter" class="eyebrow">Défi 1 sur 10</div><span id="points" class="score-mini">0 bonne réponse</span></div>
+    <div class="track" role="progressbar" aria-label="Progression du jeu" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progress"><div class="track-fill" id="track-fill"></div></div>
+    <h2 id="question-title" tabindex="-1"></h2>
+    <div id="answers" class="answers" role="group" aria-label="Choix de réponse"></div>
+    <div id="explanation" class="explanation" role="status" hidden><strong id="feedback-title"></strong><span id="feedback-text"></span></div>
+    <div class="actions"><button type="button" id="next" class="btn" hidden>Question suivante →</button></div>
+  </section>
+
+  <section id="result" class="card" hidden aria-labelledby="result-heading">
+    <div class="eyebrow">Défi terminé !</div>
+    <h1 id="result-heading">Bien joué, tu es allé au bout ! 🎉</h1>
+    <div class="result-box">
+      <div class="small muted">Ton score à ce jeu</div>
+      <div id="final-score" class="big-score">0/10</div>
+      <div id="result-title" class="result-title"></div>
+      <p id="result-text"></p>
+    </div>
+    <div class="review"><h3>Pour continuer à progresser</h3><ul><li>Repère les mots-pièges dans les énoncés.</li><li>Essaie plusieurs hypothèses avant de choisir.</li><li>Lis les explications : c'est là qu'on apprend le plus !</li></ul></div>
+    <p class="muted small">Ce résultat concerne uniquement ces dix énigmes. Il n'est ni un diagnostic, ni une évaluation psychologique, ni un indicateur de QI.</p>
+    <button type="button" id="restart" class="btn">Rejouer les 10 défis ↻</button>
+  </section>
+
+  <footer>Le jeu ne demande aucune donnée personnelle. Les réponses et le score restent en mémoire uniquement pendant la partie, sur ton appareil : rien n'est transmis par ce test ni conservé après fermeture ou actualisation. L'hébergeur peut traiter des données techniques nécessaires à la connexion.</footer>
+</main>
+<script>
+'use strict';
+(() => {
+  const questions = [
+    {
+      q: 'Quelle est la suite logique ? 3 – 6 – 12 – 24 – ?',
+      options: ['30', '36', '48', '60'], correct: 2,
+      why: 'Chaque nombre est le double du précédent : 3 × 2 = 6, puis 12, 24 et enfin 48.'
+    },
+    {
+      q: 'Tu dépasses la personne qui est en 2e position dans une course. Quelle est ta place ?',
+      options: ['1re', '2e', '3e', 'Impossible à savoir'], correct: 1,
+      why: 'Tu prends la place de la personne dépassée : tu es donc 2e, pas 1er.'
+    },
+    {
+      q: 'Dans un tiroir, il y a des chaussettes rouges et bleues. Dans le noir, combien faut-il en prendre au minimum pour être sûr d’en avoir deux de la même couleur ?',
+      options: ['2', '3', '4', '5'], correct: 1,
+      why: 'Avec seulement deux couleurs, si les deux premières chaussettes sont différentes, la troisième correspond forcément à l’une des deux.'
+    },
+    {
+      q: 'Une activité commence à 14 h 45 et dure 1 h 35. À quelle heure se termine-t-elle ?',
+      options: ['15 h 20', '16 h 10', '16 h 20', '16 h 30'], correct: 2,
+      why: '14 h 45 + 1 heure = 15 h 45, puis + 35 minutes = 16 h 20.'
+    },
+    {
+      q: 'Lequel de ces éléments est différent des trois autres ?',
+      options: ['Triangle', 'Rectangle', 'Cercle', 'Carré'], correct: 2,
+      why: 'Le cercle n’a pas de côtés droits ni de sommets. Les trois autres figures sont des polygones.'
+    },
+    {
+      q: 'Je suis un nombre entier entre 20 et 30, divisible par 3 et par 4. Qui suis-je ?',
+      options: ['21', '24', '27', '28'], correct: 1,
+      why: '24 est divisible par 3 (24 ÷ 3 = 8) et par 4 (24 ÷ 4 = 6).'
+    },
+    {
+      q: 'Nora a plus de livres que Léa. Léa a plus de livres que Sami. Qui en a le moins ?',
+      options: ['Nora', 'Léa', 'Sami', 'On ne peut pas savoir'], correct: 2,
+      why: 'On peut classer les quantités : Nora > Léa > Sami. C’est Sami qui en a le moins.'
+    },
+    {
+      q: 'Des cartes portent une lettre d’un côté et un nombre de l’autre. Règle : « Si une carte a une voyelle d’un côté, elle a un nombre pair de l’autre. » Quelles cartes dois-tu retourner pour vérifier cette règle ?',
+      options: ['A et 4', 'A et 7', 'D et 4', 'Les quatre cartes'], correct: 1,
+      why: 'Il faut vérifier A (une voyelle doit cacher un nombre pair) et 7 (un nombre impair ne doit pas cacher une voyelle). Retourner 4 n’aide pas : un nombre pair peut avoir n’importe quelle lettre.'
+    },
+    {
+      q: 'Trouve le nombre suivant : 2 – 5 – 11 – 23 – ?',
+      options: ['35', '46', '47', '48'], correct: 2,
+      why: 'On multiplie par 2 et on ajoute 1 : 2 → 5 → 11 → 23 → 47.'
+    },
+    {
+      q: 'Tous les « flops » sont verts. Certains objets verts sont ronds. Peut-on affirmer que certains flops sont ronds ?',
+      options: ['Oui, forcément', 'Non, pas avec ces informations', 'Oui, si tous les objets verts sont ronds', 'Tous les flops sont ronds'], correct: 1,
+      why: 'Les objets verts qui sont ronds ne sont pas nécessairement des flops. Les deux informations ne suffisent pas pour conclure.'
+    }
+  ];
+  const $ = id => document.getElementById(id);
+  let index = 0;
+  let score = 0;
+  let locked = false;
+  let answers = [];
+
+  function screen(active) {
+    for (const id of ['intro', 'quiz', 'result']) $(id).hidden = id !== active;
+  }
+  function paint() {
+    locked = false;
+    const item = questions[index];
+    screen('quiz');
+    $('counter').textContent = `Défi ${index + 1} sur ${questions.length}`;
+    $('points').textContent = `${score} bonne${score > 1 ? 's' : ''} réponse${score > 1 ? 's' : ''}`;
+    $('progress').setAttribute('aria-valuenow', String(index + 1));
+    $('track-fill').style.width = `${100 * (index + 1) / questions.length}%`;
+    $('question-title').textContent = item.q;
+    $('answers').replaceChildren();
+    $('explanation').hidden = true;
+    $('next').hidden = true;
+    item.options.forEach((choice, optionIndex) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'answer';
+      btn.textContent = `${String.fromCharCode(65 + optionIndex)}. ${choice}`;
+      btn.addEventListener('click', () => choose(optionIndex));
+      $('answers').appendChild(btn);
+    });
+    $('question-title').focus({preventScroll:true});
+  }
+  function choose(selected) {
+    if (locked) return;
+    locked = true;
+    const question = questions[index];
+    const correct = selected === question.correct;
+    if (correct) score += 1;
+    answers.push(selected);
+    Array.from($('answers').children).forEach((button, pos) => {
+      button.disabled = true;
+      if (pos === question.correct) button.classList.add('correct');
+      if (pos === selected && !correct) button.classList.add('wrong');
+    });
+    $('points').textContent = `${score} bonne${score > 1 ? 's' : ''} réponse${score > 1 ? 's' : ''}`;
+    $('explanation').classList.toggle('good', correct);
+    $('feedback-title').textContent = correct ? 'Bonne réponse ! 🎉' : `La bonne réponse : ${question.options[question.correct]}`;
+    $('feedback-text').textContent = question.why;
+    $('explanation').hidden = false;
+    $('next').textContent = index === questions.length - 1 ? 'Voir mon résultat →' : 'Question suivante →';
+    $('next').hidden = false;
+  }
+  function finish() {
+    screen('result');
+    $('final-score').textContent = `${score}/${questions.length}`;
+    let title, note;
+    if (score <= 3) {
+      title = 'Curiosité activée 🔎';
+      note = 'Les énigmes ont réservé quelques surprises ! En lisant les explications et en rejouant, tu verras peut-être les pièges plus vite.';
+    } else if (score <= 6) {
+      title = 'Bien vu ! 💡';
+      note = 'Tu as repéré plusieurs mécanismes. Sur les questions plus piégeuses, prendre un instant pour vérifier les indices peut faire la différence.';
+    } else if (score <= 8) {
+      title = 'Le sens du détail 👀';
+      note = 'Tu t’es bien débrouillé avec ces défis. Les erreurs éventuelles sont de bonnes occasions d’apprendre une autre façon de raisonner.';
+    } else {
+      title = 'Belle série ! 🌟';
+      note = 'Tu as résolu presque toutes ces énigmes. Pourquoi ne pas tenter une nouvelle série avec des questions différentes ?';
+    }
+    $('result-title').textContent = title;
+    $('result-text').textContent = note;
+    $('result-heading').focus?.();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+  $('start').addEventListener('click', () => { index = 0; score = 0; answers = []; paint(); });
+  $('next').addEventListener('click', () => {
+    if (!locked) return;
+    if (index < questions.length - 1) { index += 1; paint(); }
+    else finish();
+  });
+  $('restart').addEventListener('click', () => { index = 0; score = 0; answers = []; paint(); });
+})();
+</script>
+</body>
+</html>
