@@ -63,8 +63,8 @@
   <section id="intro" class="card">
     <div class="eyebrow">Défis & logique · 10 questions</div>
     <h1>10 défis pour faire chauffer tes neurones 🧩</h1>
-    <p>Suites, petits pièges, déductions… Dix questions pour jouer avec ta logique. À chaque réponse, tu découvres l'explication avant de passer à la suivante.</p>
-    <div class="chips"><span class="chip">⏱ 3 à 5 minutes</span><span class="chip">🎯 10 défis</span><span class="chip">💡 Explications incluses</span></div>
+    <p>Suites, petits pièges, déductions… Dix questions de difficulté progressive pour jouer avec ta logique. À chaque réponse, tu découvres l'explication avant de passer à la suivante.</p>
+    <div class="chips"><span class="chip">⏱ 5 à 8 minutes</span><span class="chip">🎯 10 défis</span><span class="chip">💡 Explications incluses</span></div>
     <p class="muted small">Un jeu de raisonnement, pas un test de QI. Ton score ne mesure ni ton intelligence ni tes capacités.</p>
     <button type="button" id="start" class="btn">C'est parti ! →</button>
   </section>
@@ -80,7 +80,7 @@
 
   <section id="result" class="card" hidden aria-labelledby="result-heading">
     <div class="eyebrow">Défi terminé !</div>
-    <h1 id="result-heading">Bien joué, tu es allé au bout ! 🎉</h1>
+    <h1 id="result-heading" tabindex="-1">Bien joué, tu es allé au bout ! 🎉</h1>
     <div class="result-box">
       <div class="small muted">Ton score à ce jeu</div>
       <div id="final-score" class="big-score">0/10</div>
@@ -98,57 +98,17 @@
 'use strict';
 (() => {
   const questions = [
-    {
-      q: 'Quelle est la suite logique ? 3 – 6 – 12 – 24 – ?',
-      options: ['30', '36', '48', '60'], correct: 2,
-      why: 'Chaque nombre est le double du précédent : 3 × 2 = 6, puis 12, 24 et enfin 48.'
-    },
-    {
-      q: 'Tu dépasses la personne qui est en 2e position dans une course. Quelle est ta place ?',
-      options: ['1re', '2e', '3e', 'Impossible à savoir'], correct: 1,
-      why: 'Tu prends la place de la personne dépassée : tu es donc 2e, pas 1er.'
-    },
-    {
-      q: 'Dans un tiroir, il y a des chaussettes rouges et bleues. Dans le noir, combien faut-il en prendre au minimum pour être sûr d’en avoir deux de la même couleur ?',
-      options: ['2', '3', '4', '5'], correct: 1,
-      why: 'Avec seulement deux couleurs, si les deux premières chaussettes sont différentes, la troisième correspond forcément à l’une des deux.'
-    },
-    {
-      q: 'Une activité commence à 14 h 45 et dure 1 h 35. À quelle heure se termine-t-elle ?',
-      options: ['15 h 20', '16 h 10', '16 h 20', '16 h 30'], correct: 2,
-      why: '14 h 45 + 1 heure = 15 h 45, puis + 35 minutes = 16 h 20.'
-    },
-    {
-      q: 'Lequel de ces éléments est différent des trois autres ?',
-      options: ['Triangle', 'Rectangle', 'Cercle', 'Carré'], correct: 2,
-      why: 'Le cercle n’a pas de côtés droits ni de sommets. Les trois autres figures sont des polygones.'
-    },
-    {
-      q: 'Je suis un nombre entier entre 20 et 30, divisible par 3 et par 4. Qui suis-je ?',
-      options: ['21', '24', '27', '28'], correct: 1,
-      why: '24 est divisible par 3 (24 ÷ 3 = 8) et par 4 (24 ÷ 4 = 6).'
-    },
-    {
-      q: 'Nora a plus de livres que Léa. Léa a plus de livres que Sami. Qui en a le moins ?',
-      options: ['Nora', 'Léa', 'Sami', 'On ne peut pas savoir'], correct: 2,
-      why: 'On peut classer les quantités : Nora > Léa > Sami. C’est Sami qui en a le moins.'
-    },
-    {
-      q: 'Des cartes portent une lettre d’un côté et un nombre de l’autre. Règle : « Si une carte a une voyelle d’un côté, elle a un nombre pair de l’autre. » Quelles cartes dois-tu retourner pour vérifier cette règle ?',
-      options: ['A et 4', 'A et 7', 'D et 4', 'Les quatre cartes'], correct: 1,
-      why: 'Il faut vérifier A (une voyelle doit cacher un nombre pair) et 7 (un nombre impair ne doit pas cacher une voyelle). Retourner 4 n’aide pas : un nombre pair peut avoir n’importe quelle lettre.'
-    },
-    {
-      q: 'Trouve le nombre suivant : 2 – 5 – 11 – 23 – ?',
-      options: ['35', '46', '47', '48'], correct: 2,
-      why: 'On multiplie par 2 et on ajoute 1 : 2 → 5 → 11 → 23 → 47.'
-    },
-    {
-      q: 'Tous les « flops » sont verts. Certains objets verts sont ronds. Peut-on affirmer que certains flops sont ronds ?',
-      options: ['Oui, forcément', 'Non, pas avec ces informations', 'Oui, si tous les objets verts sont ronds', 'Tous les flops sont ronds'], correct: 1,
-      why: 'Les objets verts qui sont ronds ne sont pas nécessairement des flops. Les deux informations ne suffisent pas pour conclure.'
-    }
-  ];
+{q: 'Quelle est la suite logique ? 3 – 6 – 12 – 24 – ?', options: ['30', '36', '48', '60'], correct: 2, why: 'Chaque nombre est le double du précédent : 3 × 2 = 6, puis 12, 24 et enfin 48.'},
+{q: 'Tu dépasses la personne qui est en 2e position dans une course. Quelle est ta place ?', options: ['1re', '2e', '3e', 'Impossible à savoir'], correct: 1, why: 'Tu prends la place de la personne dépassée : tu es donc 2e, pas 1er.'},
+{q: 'Dans un tiroir, il y a des chaussettes rouges et bleues. Dans le noir, combien faut-il en prendre au minimum pour être sûr d’en avoir deux de la même couleur ?', options: ['2', '3', '4', '5'], correct: 1, why: 'Avec seulement deux couleurs, si les deux premières chaussettes sont différentes, la troisième correspond forcément à l’une des deux.'},
+{"q": "Quatre amis font la queue. Inès est juste devant Sami. Nora est derrière Sami. Léo est devant Inès. Qui est forcément en deuxième position ?", "options": ["Léo", "Inès", "Sami", "Nora"], "correct": 1, "why": "Léo est devant le duo Inès–Sami, et Nora est derrière Sami. Le seul ordre possible est Léo, Inès, Sami, Nora."},
+{"q": "Trois boîtes portent les étiquettes « pommes », « poires » et « mélange ». Toutes les étiquettes sont fausses. Tu tires un fruit, sans regarder, dans une seule boîte. Laquelle choisir pour pouvoir réétiqueter les trois ?", "options": ["La boîte « pommes »", "La boîte « poires »", "La boîte « mélange »", "Aucune : il faut trois tirages"], "correct": 2, "why": "La boîte « mélange » ne contient qu’un type de fruit puisque son étiquette est fausse. Si tu tires une pomme, c’est la boîte de pommes. La boîte « poires » doit alors être le mélange, et la boîte « pommes » contient les poires. Le raisonnement est symétrique si tu tires une poire."},
+{"q": "Un code a trois chiffres différents parmi 1, 2 et 3. Le 1 est avant le 3. Le 2 n’est pas au milieu. Le 3 n’est pas en dernière position. Quel est le code ?", "options": ["123", "132", "213", "231"], "correct": 1, "why": "Le 3 ne peut pas être premier, car le 1 est avant lui, ni dernier. Il est donc au milieu. Le 1 est premier et le 2 dernier : 132."},
+{"q": "Un robot avance de 3 cases, puis recule de 1 case. Il répète ce cycle quatre fois sur une ligne, en partant de la case 0. Sur quelle case termine-t-il ?", "options": ["4", "8", "9", "12"], "correct": 1, "why": "Un cycle complet lui fait gagner 2 cases : +3 −1. Après quatre cycles complets, il est sur la case 8."},
+{"q": "Quatre cartes montrent A, D, 4 et 7. Chacune porte une lettre sur une face et un nombre sur l’autre. Règle à vérifier : « Si une face porte une voyelle, l’autre porte un nombre pair. » Quelles cartes faut-il retourner au minimum ?", "options": ["A et 4", "A et 7", "D et 4", "Les quatre cartes"], "correct": 1, "why": "Il faut retourner A pour chercher un éventuel nombre impair, et 7 pour chercher une éventuelle voyelle : ces cas contrediraient la règle. Le 4 peut cacher une consonne sans contredire la règle, qui ne dit pas « si nombre pair, alors voyelle »."},
+{q: 'Trouve le nombre suivant : 2 – 5 – 11 – 23 – ?', options: ['35', '46', '47', '48'], correct: 2, why: 'On multiplie par 2 et on ajoute 1 : 2 → 5 → 11 → 23 → 47.'},
+{"q": "Tous les « flops » sont verts. Certains objets verts sont ronds. Quelle conclusion est certaine ?", "options": ["Certains flops sont ronds", "Aucun flop n’est rond", "Tous les objets ronds sont des flops", "On ne sait pas si des flops sont ronds"], "correct": 3, "why": "Les objets verts et ronds peuvent être des flops ou d’autres objets. Rien ne permet d’affirmer qu’il existe des flops ronds, ni d’exclure cette possibilité."}
+];
   const $ = id => document.getElementById(id);
   let index = 0;
   let score = 0;
@@ -164,8 +124,8 @@
     screen('quiz');
     $('counter').textContent = `Défi ${index + 1} sur ${questions.length}`;
     $('points').textContent = `${score} bonne${score > 1 ? 's' : ''} réponse${score > 1 ? 's' : ''}`;
-    $('progress').setAttribute('aria-valuenow', String(index + 1));
-    $('track-fill').style.width = `${100 * (index + 1) / questions.length}%`;
+    $('progress').setAttribute('aria-valuenow', String(index));
+    $('track-fill').style.width = `${100 * index / questions.length}%`;
     $('question-title').textContent = item.q;
     $('answers').replaceChildren();
     $('explanation').hidden = true;
@@ -187,6 +147,8 @@
     const correct = selected === question.correct;
     if (correct) score += 1;
     answers.push(selected);
+    $('progress').setAttribute('aria-valuenow',String(index+1));
+    $('track-fill').style.width=`${100*(index+1)/questions.length}%`;
     Array.from($('answers').children).forEach((button, pos) => {
       button.disabled = true;
       if (pos === question.correct) button.classList.add('correct');
@@ -199,6 +161,7 @@
     $('explanation').hidden = false;
     $('next').textContent = index === questions.length - 1 ? 'Voir mon résultat →' : 'Question suivante →';
     $('next').hidden = false;
+    $('next').focus({preventScroll:true});
   }
   function finish() {
     screen('result');
