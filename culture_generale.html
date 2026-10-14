@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="12 questions de culture générale, entre idées reçues et découvertes, à faire gratuitement en quelques minutes. Sans inscription et sans collecte de réponses.">
+  <title>Culture générale — Le Coin des Tests</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#213149;background:#f6f8fc;--ink:#213149;--navy:#263c65;--line:#e3e9f1;--muted:#56677e;--yellow:#fff0c7;--mint:#dff5e9;--purple:#e8e4ff}
+    *{box-sizing:border-box}
+    body{margin:0;min-width:290px}
+    main{width:min(100%,740px);margin:0 auto;padding:22px 17px 58px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:36px}
+    .brand{font-weight:850;letter-spacing:-.04em;font-size:16px}
+    .pill{border-radius:40px;background:#e8e4ff;padding:8px 11px;color:#4a4187;font-size:12px;font-weight:700;white-space:nowrap}
+    .card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:clamp(20px,5vw,38px);box-shadow:0 12px 34px rgba(32,51,89,.06)}
+    .eyebrow{color:#6a58b9;font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(30px,6vw,45px);line-height:1.12;letter-spacing:-.045em;margin:12px 0 18px}
+    h2{font-size:clamp(24px,4.5vw,33px);line-height:1.2;letter-spacing:-.035em;margin:18px 0 20px}
+    p{line-height:1.6}
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .chips{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 25px}
+    .chip{background:#eef3f8;color:#354a66;border-radius:40px;font-weight:700;font-size:12px;padding:9px 12px}
+    .btn{appearance:none;border:0;background:var(--navy);color:white;border-radius:13px;padding:14px 20px;font:inherit;font-weight:750;cursor:pointer;min-height:48px}
+    .btn:hover{background:#354f80}
+    .btn:focus-visible,.answer:focus-visible{outline:3px solid #f1ac40;outline-offset:3px}
+    .btn.secondary{background:#eef2f8;color:var(--ink)}
+    .btn.secondary:hover{background:#e5ebf6}
+    .question-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}
+    .score-mini{font-size:13px;color:var(--muted);font-weight:650}
+    .track{height:9px;background:#edf0f7;border-radius:20px;overflow:hidden;margin-bottom:25px}
+    .track-fill{height:100%;width:0%;background:linear-gradient(90deg,#7162d9,#3fa990);transition:width .2s ease}
+    .answers{display:grid;gap:10px}
+    .answer{width:100%;text-align:left;background:white;border:2px solid #e2e8f1;border-radius:15px;color:var(--ink);padding:14px 16px;min-height:56px;cursor:pointer;font:inherit;font-weight:650}
+    .answer:hover:not(:disabled){border-color:#7968cc;background:#f7f5ff}
+    .answer:disabled{cursor:default;opacity:1}
+    .answer.correct{border-color:#2f9e70;background:#e6f8ee}
+    .answer.wrong{border-color:#d87867;background:#fff0ed}
+    .explanation{margin:19px 0 2px;border-radius:15px;padding:15px 16px;background:var(--purple);border-left:5px solid #7a65d0}
+    .explanation.good{background:#e7f7ee;border-left-color:#2d9468}
+    .explanation strong{display:block;margin-bottom:5px}
+    .actions{display:flex;justify-content:flex-end;margin-top:24px}
+    .result-box{padding:20px;border-radius:17px;background:var(--yellow);margin:20px 0}
+    .big-score{font-size:clamp(34px,9vw,56px);font-weight:850;letter-spacing:-.05em;margin:6px 0}
+    .result-title{font-weight:850;font-size:22px;margin:10px 0}
+    .review{margin:22px 0 4px;padding:18px;background:#f0f5ff;border-radius:16px}
+    .review h3{margin:0 0 10px;font-size:17px}
+    .review ul{margin:0;padding-left:20px;line-height:1.65}
+    footer{text-align:center;font-size:12px;color:#69778c;line-height:1.6;padding:26px 10px 0}
+    [hidden]{display:none !important}
+    @media(max-width:450px){header{margin-bottom:20px}.card{border-radius:20px}.pill{font-size:11px}.actions .btn{width:100%}}
+  .review-item{border-top:1px solid #d9e0ef;padding:15px 0}.review-item summary{cursor:pointer;font-weight:700;line-height:1.5}.review-item a,#source-link{color:#4b4193;overflow-wrap:anywhere}.review-item p{font-size:14px}</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="brand">✦ Le Coin des Tests</div>
+    <div class="pill">Gratuit · Sans inscription</div>
+  </header>
+
+  <section id="intro" class="card">
+    <div class="eyebrow">Culture générale · Série 1</div>
+    <h1>Tu le savais…<br>ou tu le croyais ? 🌍</h1>
+    <p>Espace, cinéma, animaux, histoire, inventions… 12 questions pour tester tes connaissances et bousculer quelques idées reçues. Après chaque réponse, découvre le pourquoi et sa source.</p>
+    <div class="chips"><span class="chip">⏱ 4 à 6 minutes</span><span class="chip">🎯 12 questions</span><span class="chip">💡 Explications incluses</span></div>
+    <p class="muted small">Sans chrono : prends le temps de réfléchir. Ton score porte sur cette série et ne résume pas ta culture générale.</p>
+    <button type="button" id="start" class="btn">C'est parti ! →</button>
+  </section>
+
+  <section id="quiz" class="card" hidden aria-labelledby="question-title">
+    <div class="question-top"><div id="counter" class="eyebrow">Question 1 sur 12</div><span id="points" class="score-mini">0 bonne réponse</span></div>
+    <div class="track" role="progressbar" aria-label="Progression du jeu" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0" id="progress"><div class="track-fill" id="track-fill"></div></div>
+    <h2 id="question-title" tabindex="-1"></h2>
+    <div id="answers" class="answers" role="group" aria-label="Choix de réponse"></div>
+    <div id="explanation" class="explanation" role="status" hidden><strong id="feedback-title"></strong><span id="feedback-text"></span><p class="small"><a id="source-link" target="_blank" rel="noopener noreferrer"></a></p></div>
+    <div class="actions"><button type="button" id="next" class="btn" hidden>Question suivante →</button></div>
+  </section>
+
+  <section id="result" class="card" hidden aria-labelledby="result-heading">
+    <div class="eyebrow">Série terminée !</div>
+    <h1 id="result-heading" tabindex="-1">Bien joué, tu es allé au bout ! 🎉</h1>
+    <div class="result-box">
+      <div class="small muted">Ton score à ce jeu</div>
+      <div id="final-score" class="big-score">0/12</div>
+      <div id="result-title" class="result-title"></div>
+      <p id="result-text"></p>
+    </div>
+    <div class="review"><h3>Retrouve tes découvertes</h3><p class="small muted">Ouvre une question pour revoir ta réponse, l’explication et la source.</p><div id="review-list"></div></div>
+    <p class="muted small">Chaque bonne réponse vaut un point, sans pénalité. Les questions restent identiques lorsque tu rejoues : tu peux ainsi vérifier ce que tu as retenu.</p>
+    <button type="button" id="restart" class="btn">Rejouer les 12 questions ↻</button>
+  </section>
+
+  <footer>Le jeu ne demande aucune donnée personnelle. Les réponses et le score restent en mémoire uniquement pendant la partie, sur ton appareil : rien n'est transmis par ce test ni conservé après fermeture ou actualisation. L'hébergeur peut traiter des données techniques nécessaires à la connexion.</footer>
+</main>
+<script>
+'use strict';
+(() => {
+  const questions = [{"category": "Espace", "q": "La planète la plus proche du Soleil est Mercure. Mais laquelle a la surface la plus chaude ?", "options": ["Mercure", "Vénus", "Mars", "Jupiter"], "correct": 1, "why": "Vénus possède une atmosphère très dense qui retient la chaleur par effet de serre. Être plus près du Soleil ne suffit donc pas à détenir le record !", "source": "NASA", "url": "https://science.nasa.gov/venus/venus-facts/"}, {"category": "Vivant", "q": "Une pieuvre a huit bras… mais combien de cœurs ?", "options": ["Un", "Deux", "Trois", "Huit"], "correct": 2, "why": "Deux cœurs envoient le sang vers les branchies, où il se charge en oxygène. Le troisième le fait circuler dans le reste du corps.", "source": "Natural History Museum", "url": "https://www.nhm.ac.uk/discover/octopuses-keep-surprising-us-here-are-eight-examples-how.html"}, {"category": "Sciences", "q": "Dans un film, un vaisseau explose. À distance, dans un vide parfait, que pourrait-on recevoir directement de cette explosion ?", "options": ["Sa lumière, mais pas son bruit", "Son bruit, mais pas sa lumière", "Son bruit et sa lumière", "Ni son bruit ni sa lumière"], "correct": 0, "why": "La lumière peut se propager dans le vide. Le son a besoin d’un milieu matériel, comme l’air, l’eau ou un solide. Les énormes bruits d’explosion spatiale sont donc un choix de cinéma.", "source": "NASA", "url": "https://science.nasa.gov/ems/02_anatomy/"}, {"category": "Histoire", "q": "Quel événement est le plus ancien ?", "options": ["L’impression de la Bible de Gutenberg", "Le début de la Première Guerre mondiale", "Les premiers pas humains sur la Lune", "Les premiers enseignements attestés à Oxford"], "correct": 3, "why": "Des enseignements sont attestés à Oxford dès 1096. La Bible de Gutenberg date du milieu du XVe siècle, la Première Guerre mondiale commence en 1914 et les premiers pas sur la Lune datent de 1969. Attention : 1096 n’est pas une date de fondation certaine de l’université.", "source": "Université d’Oxford", "url": "https://www.ox.ac.uk/about/the-university/history"}, {"category": "Géographie", "q": "Lequel de ces pays partage une frontière terrestre avec la France grâce à la Guyane ?", "options": ["Le Mexique", "Le Canada", "Le Brésil", "Le Pérou"], "correct": 2, "why": "La Guyane se situe en Amérique du Sud et fait partie de la France. Elle est voisine du Brésil et du Suriname : les frontières françaises ne se limitent pas à l’Europe.", "source": "France Diplomatie", "url": "https://www.diplomatie.gouv.fr/fr/information-par-pays/bresil/relations-bilaterales"}, {"category": "Voyage", "q": "Un navire traverse le canal de Suez. Quelles mers ce canal relie-t-il ?", "options": ["La Méditerranée et la mer Rouge", "La mer Noire et la Méditerranée", "La mer Rouge et la mer d’Arabie", "La mer du Nord et la Baltique"], "correct": 0, "why": "Le canal de Suez traverse l’Égypte et relie la Méditerranée à la mer Rouge. Il offre un passage maritime entre ces deux mers sans contourner l’Afrique.", "source": "Autorité du canal de Suez", "url": "https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/AboutSuezCanal.aspx"}, {"category": "Littérature", "q": "Dans le roman de Mary Shelley, qui porte le nom de Frankenstein ?", "options": ["La créature ramenée à la vie", "Le scientifique qui crée la créature", "Le village où tout commence", "Le capitaine qui poursuit la créature"], "correct": 1, "why": "Victor Frankenstein est le jeune scientifique. Dans le roman, la créature n’a pas de nom propre : l’usage populaire a fini par lui attribuer celui de son créateur.", "source": "Texte du roman · Project Gutenberg", "url": "https://www.gutenberg.org/ebooks/84"}, {"category": "Art", "q": "Quel artiste a peint Guernica, cette grande œuvre en noir, blanc et gris ?", "options": ["Salvador Dalí", "Claude Monet", "Vincent van Gogh", "Pablo Picasso"], "correct": 3, "why": "Picasso réalise Guernica en 1937. Liée au bombardement de la ville basque pendant la guerre d’Espagne, l’œuvre représente la souffrance et la violence de la guerre.", "source": "Musée Reina Sofía", "url": "https://guernica.museoreinasofia.es/en"}, {"category": "Cinéma", "q": "Mon voisin Totoro et Le Voyage de Chihiro appartiennent à l’univers de quel studio ?", "options": ["Studio Ghibli", "Pixar", "DreamWorks", "Aardman"], "correct": 0, "why": "Ces films de Hayao Miyazaki sont des productions du Studio Ghibli. Totoro, sorti en 1988, est aussi devenu la figure du logo du studio.", "source": "Studio Ghibli", "url": "https://www.ghibli.jp/works/totoro/"}, {"category": "Inventions", "q": "L’origine du nom « QR Code » renvoie à quelle idée ?", "options": ["Quality Record : un relevé de qualité", "Quiet Reading : une lecture silencieuse", "Quick Response : une réponse rapide", "Quantum Relay : un relais quantique"], "correct": 2, "why": "Le nom renvoie à Quick Response, l’idée d’une lecture rapide. Le QR Code a été développé chez DENSO WAVE pour lire rapidement des informations, notamment dans l’industrie.", "source": "DENSO WAVE · Histoire du QR Code", "url": "https://www.qrcode.com/en/history/"}, {"category": "Sport", "q": "Lors des débuts du basket en 1891, que visait-on avec le ballon ?", "options": ["Des seaux métalliques", "Des cerceaux sans filet", "Des caisses posées au sol", "Des paniers à pêches fixés en hauteur"], "correct": 3, "why": "James Naismith utilise des paniers à pêches comme cibles et un ballon de football. Le nom basketball garde la trace de ces paniers, bien avant les arceaux modernes !", "source": "FIBA", "url": "https://www.fiba.basketball/fr/news/basketballs-first-game-was-125-years-ago-today"}, {"category": "Numérique", "q": "Quelle invention Tim Berners-Lee propose-t-il au CERN en 1989 ?", "options": ["Internet dans son ensemble", "Le World Wide Web", "Le premier courrier électronique", "Le Wi-Fi"], "correct": 1, "why": "Il propose le World Wide Web, qui permet de consulter des pages reliées par des liens. Internet, le réseau sur lequel le Web fonctionne, existait déjà : Web et Internet ne désignent pas la même chose.", "source": "CERN", "url": "https://home.web.cern.ch/fr/science/computing/birth-web/"}];
+  const $ = id => document.getElementById(id);
+  let index = 0;
+  let score = 0;
+  let locked = false;
+  let answers = [];
+
+  function screen(active) {
+    for (const id of ['intro', 'quiz', 'result']) $(id).hidden = id !== active;
+  }
+  function paint() {
+    locked = false;
+    const item = questions[index];
+    screen('quiz');
+    $('counter').textContent = `Question ${index + 1} sur ${questions.length} · ${item.category}`;
+    $('points').textContent = `${score} bonne${score > 1 ? 's' : ''} réponse${score > 1 ? 's' : ''}`;
+    $('progress').setAttribute('aria-valuenow', String(index));
+    $('track-fill').style.width = `${100 * index / questions.length}%`;
+    $('question-title').textContent = item.q;
+    $('answers').replaceChildren();
+    $('explanation').hidden = true;
+    $('next').hidden = true;
+    item.options.forEach((choice, optionIndex) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'answer';
+      btn.textContent = `${String.fromCharCode(65 + optionIndex)}. ${choice}`;
+      btn.addEventListener('click', () => choose(optionIndex));
+      $('answers').appendChild(btn);
+    });
+    $('question-title').focus({preventScroll:true});
+  }
+  function choose(selected) {
+    if (locked) return;
+    locked = true;
+    const question = questions[index];
+    const correct = selected === question.correct;
+    if (correct) score += 1;
+    answers.push(selected);
+    $('progress').setAttribute('aria-valuenow',String(index+1));
+    $('track-fill').style.width=`${100*(index+1)/questions.length}%`;
+    Array.from($('answers').children).forEach((button, pos) => {
+      button.disabled = true;
+      if (pos === question.correct) button.classList.add('correct');
+      if (pos === selected && !correct) button.classList.add('wrong');
+    });
+    $('points').textContent = `${score} bonne${score > 1 ? 's' : ''} réponse${score > 1 ? 's' : ''}`;
+    $('explanation').classList.toggle('good', correct);
+    $('feedback-title').textContent = correct ? 'Bonne réponse ! 🎉' : `La bonne réponse : ${question.options[question.correct]}`;
+    $('feedback-text').textContent = question.why;
+    $('source-link').textContent = 'Source : '+question.source; $('source-link').href=question.url;
+    $('explanation').hidden = false;
+    $('next').textContent = index === questions.length - 1 ? 'Voir mon résultat →' : 'Question suivante →';
+    $('next').hidden = false;
+    $('next').focus({preventScroll:true});
+  }
+  function finish() {
+    screen('result');
+    $('final-score').textContent = `${score}/${questions.length}`;
+    const bands = score<=3 ? ['De nouvelles découvertes 🔎','Cette série t’a fait découvrir plusieurs faits. Le récapitulatif te permet de retrouver les explications à ton rythme.'] : score<=6 ? ['Quelques belles trouvailles 💡','Tu as reconnu plusieurs réponses et déjoué quelques pièges. Parmi les découvertes, laquelle raconteras-tu à quelqu’un ?'] : score<=9 ? ['Une curiosité bien nourrie 🌍','Une belle série de réponses dans des domaines variés ! Regarde les questions qui t’ont surpris : elles donnent souvent envie de creuser.'] : ['Belle traversée ! ✨','Tu as trouvé presque toutes les réponses de cette série. Essaie maintenant d’expliquer l’une de ces découvertes avec tes propres mots.'];
+    $('result-title').textContent=bands[0]; $('result-text').textContent=bands[1];
+    const review=$('review-list'); review.replaceChildren();
+    questions.forEach((q,i)=>{const item=document.createElement('details');item.className='review-item';const heading=document.createElement('summary');heading.textContent=`${answers[i]===q.correct?'✓':'À revoir'} · ${i+1}. ${q.q}`;item.appendChild(heading);const answer=document.createElement('p');answer.textContent=`Ta réponse : ${q.options[answers[i]]}. Bonne réponse : ${q.options[q.correct]}.`;item.appendChild(answer);const explanation=document.createElement('p');explanation.textContent=q.why;item.appendChild(explanation);const link=document.createElement('a');link.textContent='Source : '+q.source;link.href=q.url;link.target='_blank';link.rel='noopener noreferrer';item.appendChild(link);review.appendChild(item)});
+    $('result-heading').focus?.();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+  $('start').addEventListener('click', () => { index = 0; score = 0; answers = []; paint(); });
+  $('next').addEventListener('click', () => {
+    if (!locked) return;
+    if (index < questions.length - 1) { index += 1; paint(); }
+    else finish();
+  });
+  $('restart').addEventListener('click', () => { index = 0; score = 0; answers = []; paint(); });
+})();
+</script></body></html>
